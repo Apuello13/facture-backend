@@ -7,22 +7,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.app.facture.entity.Cliente;
-import com.example.app.facture.repository.ClienteRepository;
+import com.example.app.facture.entity.Detalle;
+import com.example.app.facture.repository.DetalleRepository;
 
-@RequestMapping("/cliente")
+@RequestMapping("/detalle")
 @RestController
 @CrossOrigin("*")
-public class ClienteController {
+public class DetalleContoller {
 	@Autowired
-	public ClienteRepository clienteDao;
+	private DetalleRepository detalleDao;
 	
 	@PostMapping
-	public Cliente saveCliente(@RequestBody Cliente cliente) {
-		if(clienteDao.existsByTelefonoAndEmail(cliente.getTelefono(), cliente.getEmail()) & cliente.getId() == 0) {
-			return cliente = null;
-		}else {
-			return clienteDao.save(cliente);
-		}
+	public Detalle saveDetalle(@RequestBody Detalle detalle) {
+		return detalleDao.save(detalle);
 	}
 }

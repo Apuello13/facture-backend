@@ -1,6 +1,5 @@
 package com.example.app.facture.controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,22 +7,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.app.facture.entity.Producto;
-import com.example.app.facture.repository.ProductRepository;
+import com.example.app.facture.entity.Factura;
+import com.example.app.facture.repository.FacturaRepository;
 
-@RequestMapping("/producto")
-@RestController
+@RequestMapping("/factura")
 @CrossOrigin("*")
-public class ProductoController {
+@RestController
+public class FacturaController {
+	
 	@Autowired
-	private ProductRepository productoDao;
+	private FacturaRepository facuraDao;
 	
 	@PostMapping
-	public Producto saveProduct(@RequestBody Producto producto) {
-		if(productoDao.existsByNombre(producto.getNombre()) & producto.getId() == 0) {
-			return producto = null;
-		}else {
-			return productoDao.save(producto); 
-		}
+	public Factura saveFactra(@RequestBody Factura factura) {
+		return this.facuraDao.save(factura);
 	}
 }

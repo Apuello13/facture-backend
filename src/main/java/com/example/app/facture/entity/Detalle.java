@@ -43,4 +43,10 @@ public class Detalle {
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
+	public void setProducto (Producto producto) {
+		this.producto = producto;
+	}
+	public void setFactura(Factura factura) {
+		this.factura = factura;
+	}
 }
